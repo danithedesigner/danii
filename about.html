@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Stream Logistics | About Us</title>
+    <style>
+        :root {
+            --eco-green: #2D5A27;
+            --soft-bg: #F1F8F4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Segoe UI, Arial, sans-serif;
+        }
+
+        body, html {
+            height: 100vh;
+        }
+
+        /* Fullscreen van2.jpg background */
+        body {
+            background: url("van2.jpg") center/cover no-repeat fixed;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            padding: 15px 8%; 
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar strong {
+            color: var(--eco-green);
+            font-size: 1.4rem;
+        }
+        
+        .navbar a { 
+            text-decoration: none; 
+            margin-left: 20px; 
+            color: #333; 
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .navbar a:hover {
+            color: var(--eco-green);
+        }
+
+        /* Transparent glass about container */
+        .about-container {
+            flex: 1;
+            max-width: 1100px;
+            margin: 60px auto;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            color: white;
+        }
+
+        /* Left Side: Text */
+        .text-side {
+            flex: 1;
+        }
+
+        .text-side h1 {
+            color: var(--eco-green);
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .text-side p {
+            line-height: 1.8;
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.95);
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--eco-green);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45,90,39,0.3);
+        }
+        
+        .btn:hover {
+            background: #4CAF50;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(45,90,39,0.4);
+        }
+
+        /* Right Side: Image */
+        .image-side {
+            flex: 1;
+            text-align: center;
+        }
+
+        .image-side img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 15px 15px 0px var(--eco-green); 
+            transition: transform 0.3s ease;
+        }
+
+        .image-side img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: rgba(255,255,255,0.9);
+            background: rgba(0,0,0,0.3);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 850px) {
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+                margin: 20px auto;
+            }
+            
+            .navbar {
+                padding: 12px 5%;
+                flex-wrap: wrap;
+            }
+            
+            .navbar a {
+                margin-left: 10px;
+                font-size: 0.95rem;
+            }
+            
+            .text-side h1 {
+                font-size: 2.2rem;
+            }
+            
+            .image-side img {
+                box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <strong>🌿 Eco-Stream</strong>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Transparent Glass Container -->
+    <main class="about-container">
+        <!-- Left Column: Content -->
+        <div class="text-side">
+            <h1>Driving the Change</h1>
+            <p>Eco-Stream Logistics isn't just a delivery company; we are a <strong>technology-driven movement</strong> dedicated to cleaning our city's air.</p>
+            
+            <p>By replacing traditional diesel vans with a <strong>100% Electric Fleet</strong>, we have already saved over <strong>500 tonnes of CO2 emissions</strong> this year alone.</p>
+            
+            <p>Our mission is to provide small businesses with a premium, guilt-free logistics partner that prioritizes <strong>the planet as much as the package</strong>.</p>
+            
+            <a href="services.html" class="btn">Learn More</a>
+        </div>
+
+        <!-- Right Column: Image -->
+        <div class="image-side">
+            <img src="delivery.jpg" alt="Eco-Stream electric delivery van on a city street">
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 Eco-Stream Logistics | Built for a Greener Future
+    </footer>
+</body>
+</html>

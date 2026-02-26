@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eco-Stream Logistics | Contact</title>
+
+<style>
+:root {
+    --green-dark: #2D5A27;
+    --green-main: #4CAF50;
+    --green-soft: rgba(232, 245, 233, 0.9);
+}
+
+/* ===== BACKGROUND IMAGE ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+
+    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+                url('van2.jpg') center center / cover no-repeat;
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== GLASS CONTAINER ===== */
+.contact-container {
+    width: 60%;
+    max-width: 520px;
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+
+    color: white;
+    animation: fadeIn 0.7s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    margin-bottom: 5px;
+    color: #A5D6A7;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: rgba(255,255,255,0.85);
+}
+
+/* ===== FORM ===== */
+.form-group {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #C8E6C9;
+}
+
+/* TRANSPARENT INPUTS */
+input, select {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.35);
+
+    background: rgba(255,255,255,0.18);
+    color: white;
+
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+/* Fix dropdown text color */
+select option {
+    color: black;
+}
+
+input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--green-main);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.35);
+}
+
+/* ===== BUTTON ===== */
+.btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(45deg, var(--green-dark), var(--green-main));
+    color: white;
+
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+/* ===== SUCCESS MESSAGE ===== */
+.success-card {
+    display: none;
+    text-align: center;
+    padding: 20px;
+
+    background: var(--green-soft);
+    border-radius: 12px;
+
+    color: var(--green-dark);
+    animation: fadeIn 0.5s ease;
+}
+
+.success-card h3 {
+    margin-top: 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="contact-container">
+
+    <div id="formContent">
+        <h2>Request a Green Quote</h2>
+        <p>Receive your sustainable delivery estimate instantly.</p>
+
+        <form id="quoteForm">
+
+            <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" id="name" placeholder="Daniella" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="email" placeholder="daniellakeza31@gmail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>Country</label>
+                <select id="country">
+                    <option>Rwanda</option>
+                    <option>Kenya</option>
+                    <option>Uganda</option>
+                    <option>Tanzania</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Package Weight</label>
+                <select id="weight">
+                    <option value="£4.99">Light Package (Up to 5kg) - £4.99</option>
+                    <option value="£12.50">Heavy Package (Up to 20kg) - £12.50</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Generate Quote</button>
+
+        </form>
+    </div>
+
+    <div id="successMessage" class="success-card">
+        <h3>✅ Quote Generated</h3>
+        <p>Your request has been recorded successfully.</p>
+        <button onclick="location.reload()" class="btn">Create Another Quote</button>
+    </div>
+
+</div>
+
+<script>
+document.getElementById('quoteForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    document.getElementById('formContent').style.display = "none";
+    document.getElementById('successMessage').style.display = "block";
+});
+</script>
+
+</body>
+</html>

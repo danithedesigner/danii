@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Stream Logistics | Home</title>
+    <style>
+        :root { --green: #2D5A27; --light-green: #e8f5e9; --white: #ffffff; --dark: #1b3318; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Segoe UI', sans-serif; color: var(--dark); overflow-x: hidden; }
+
+        /* NAVBAR - Enhanced Glassmorphism */
+        .navbar {
+            display:flex; justify-content:space-between; align-items:center;
+            padding:15px 8%; background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px); box-shadow:0 2px 15px rgba(0,0,0,0.1);
+            position:fixed; width:100%; z-index:1000;
+        }
+        .logo { color: var(--green); font-size: 1.5rem; }
+        .navbar a { text-decoration:none; margin-left:25px; color: var(--dark); font-weight:600; transition: 0.3s; }
+        .navbar a:hover { color: var(--green); }
+
+        /* HERO - Animated Background */
+        .hero {
+            height:100vh; display:flex; justify-content:center; align-items:center;
+            text-align:center; color: white; position: relative;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('van.jpg') center 80% / cover no-repeat;
+            transition: background-image 1.2s ease-in-out;
+        }
+        .hero-content { animation: fadeInUp 1s ease-out; z-index: 2; }
+        .hero h1 { font-size: 4rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); margin-bottom: 1rem; }
+        
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        .btn {
+            display:inline-block; background:var(--green); color:white;
+            padding:15px 35px; border-radius:50px; text-decoration:none;
+            font-weight: bold; transition: 0.4s; border: 2px solid transparent;
+        }
+        .btn:hover { background: transparent; border-color: white; transform: scale(1.05); }
+
+        /* EXTRA INFO SECTION */
+        .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 80px 8%; background: var(--light-green); }
+        .card { background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .card h3 { color: var(--green); margin-bottom: 10px; }
+
+        footer { background: var(--dark); color: white; text-align: center; padding: 40px; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <strong class="logo">🌿 Eco-Stream</strong>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Zero Emissions.<br>Zero Compromise.</h1>
+        <p style="font-size: 1.2rem; margin-bottom: 20px;">The RWANDA's leading 100% electric delivery partner.</p>
+        <a href="contact.html" class="btn">Start Your Green Journey</a>
+    </div>
+</section>
+
+<section class="info-grid">
+    <div class="card"><h3>100% Electric</h3><p>Our fleet runs purely on renewable energy, ensuring no CO2 is released during transit.</p></div>
+    <div class="card"><h3>Live Tracking</h3><p>Real-time GPS tracking for every parcel, so you’re always in the loop.</p></div>
+    <div class="card"><h3>Local Impact</h3><p>We support local businesses by providing affordable, sustainable logistics.</p></div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Eco-Stream Logistics. Leading the way in Sustainable Courier Services.</p>
+</footer>
+
+<script>
+    const images = ['van.jpg', 'van1.jpeg'];
+    let index = 0;
+    setInterval(() => {
+        index = (index + 1) % images.length;
+        document.querySelector('.hero').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${images[index]}')`;
+    }, 5000);
+</script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Stream Logistics | Services</title>
+    <style>
+        :root {
+            --eco-green: #2D5A27;
+            --light-green: #4CAF50;
+            --soft-bg: rgba(241, 248, 244, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Segoe UI, Arial, sans-serif;
+        }
+
+        body, html {
+            height: 100vh;
+        }
+
+        body {
+            background: url("van2.jpg") center/cover no-repeat fixed;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            padding: 15px 8%; 
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar strong {
+            color: var(--eco-green);
+            font-size: 1.4rem;
+        }
+        
+        .navbar a { 
+            text-decoration: none; 
+            margin-left: 20px; 
+            color: #333; 
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .navbar a:hover {
+            color: var(--eco-green);
+        }
+
+        .services-container {
+            flex: 1;
+            max-width: 1200px;
+            margin: 40px auto;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: var(--eco-green);
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .pricing-table th {
+            background: var(--eco-green);
+            padding: 20px;
+            text-align: left;
+            font-weight: bold;
+            color: white;
+        }
+
+        .pricing-table td {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .pricing-table tr:hover {
+            background: rgba(255,255,255,0.15);
+            transform: scale(1.01);
+            transition: all 0.3s ease;
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--light-green);
+            font-size: 1.2rem;
+        }
+
+        .calc-box {
+            width: 90%;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 35px;
+            background: rgba(45, 90, 39, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .calc-box h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .calc-box p {
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.95);
+        }
+
+        .calc-box input {
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid rgba(255,255,255,0.3);
+            margin: 15px 10px;
+            width: 120px;
+            font-size: 1.1rem;
+            background: rgba(255,255,255,0.9);
+            transition: all 0.3s;
+        }
+
+        .calc-box input:focus {
+            outline: none;
+            border-color: var(--light-green);
+            box-shadow: 0 0 10px rgba(76,175,80,0.5);
+        }
+
+        #co2 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--light-green);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        #saved-quote {
+            background: rgba(76, 175, 80, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            display: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--light-green);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(76,175,80,0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(76,175,80,0.4);
+        }
+
+        .btn-clear {
+            background: #ff4444;
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: rgba(255,255,255,0.9);
+            background: rgba(0,0,0,0.4);
+            margin-top: auto;
+        }
+
+        @media (max-width: 850px) {
+            .services-container {
+                padding: 30px 20px;
+                margin: 20px auto;
+            }
+            
+            .navbar {
+                padding: 12px 5%;
+            }
+            
+            .navbar a {
+                margin-left: 10px;
+                font-size: 0.95rem;
+            }
+            
+            .pricing-table th,
+            .pricing-table td {
+                padding: 15px 10px;
+                font-size: 0.95rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <strong>🌿 Eco-Stream</strong>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <main class="services-container">
+        <h1 class="section-title">Our Services</h1>
+        
+        <!-- Saved Quote Display -->
+        <div id="saved-quote">
+            <strong>✅ Your Last Quote:</strong> <span id="saved-display"></span><br>
+            <small id="saved-date"></small><br>
+            <button class="btn btn-clear" onclick="clearQuote()">Clear Quote</button>
+        </div>
+
+        <!-- Pricing Table -->
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Max Weight</th>
+                    <th>Delivery Time</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Local Eco</strong></td>
+                    <td>5kg</td>
+                    <td>Same Day</td>
+                    <td class="price">RWF 4,990</td>
+                </tr>
+                <tr>
+                    <td><strong>Business Green</strong></td>
+                    <td>20kg</td>
+                    <td>Next Day</td>
+                    <td class="price">RWF 12,500</td>
+                </tr>
+                <tr>
+                    <td><strong>Express Zero</strong></td>
+                    <td>10kg</td>
+                    <td>2 Hours</td>
+                    <td class="price">RWF 8,990</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Eco-Savings Calculator -->
+        <div class="calc-box">
+            <h3>🌿 Eco-Savings Calculator</h3>
+            <p>How many km is your delivery?</p>
+            <input type="number" id="km" placeholder="KM" oninput="calcCO2()">
+            <p>By choosing Eco-Stream, you save <br><strong><span id="co2">0</span> grams of CO₂</strong> vs diesel vans!</p>
+            <button class="btn" onclick="downloadQuote()">📥 Download Quote</button>
+            <a href="contact.html" class="btn">Get Full Quote</a>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 Eco-Stream Logistics | Kigali's Greenest Delivery Service
+    </footer>
+
+    <script>
+        // Load saved quote on page load
+        window.addEventListener('load', function() {
+            const savedKm = localStorage.getItem('ecoQuoteKm');
+            const savedCo2 = localStorage.getItem('ecoQuoteCo2');
+            const savedDate = localStorage.getItem('ecoQuoteDate');
+            
+            if (savedKm && savedCo2) {
+                document.getElementById('km').value = savedKm;
+                document.getElementById('co2').innerText = parseInt(savedCo2).toLocaleString();
+                document.getElementById('saved-display').innerText = 
+                    `${savedKm}km delivery saves ${parseInt(savedCo2).toLocaleString()}g CO₂`;
+                document.getElementById('saved-date').innerText = `Saved: ${savedDate}`;
+                document.getElementById('saved-quote').style.display = 'block';
+            }
+        });
+
+        function calcCO2() {
+            const km = parseFloat(document.getElementById('km').value) || 0;
+            const saved = Math.round(km * 411);
+            
+            // Save EVERYTHING to localStorage
+            localStorage.setItem('ecoQuoteKm', km);
+            localStorage.setItem('ecoQuoteCo2', saved);
+            localStorage.setItem('ecoQuoteDate', new Date().toLocaleDateString());
+            
+            document.getElementById('co2').innerText = saved.toLocaleString();
+            
+            // Show saved quote box
+            document.getElementById('saved-quote').style.display = 'block';
+            document.getElementById('saved-display').innerText = 
+                `${km}km delivery saves ${saved.toLocaleString()}g CO₂`;
+            document.getElementById('saved-date').innerText = `Saved: ${new Date().toLocaleDateString()}`;
+        }
+
+        function clearQuote() {
+            localStorage.removeItem('ecoQuoteKm');
+            localStorage.removeItem('ecoQuoteCo2');
+            localStorage.removeItem('ecoQuoteDate');
+            document.getElementById('km').value = '';
+            document.getElementById('co2').innerText = '0';
+            document.getElementById('saved-quote').style.display = 'none';
+        }
+
+        function downloadQuote() {
+            const km = localStorage.getItem('ecoQuoteKm');
+            const co2 = localStorage.getItem('ecoQuoteCo2');
+            const date = localStorage.getItem('ecoQuoteDate');
+            
+            const quoteText = `Eco-Stream Logistics Quote
+Date: ${date}
+Distance: ${km} km
+CO2 Savings: ${co2} grams
+Thank you for choosing green delivery!`;
+            
+            const link = document.createElement('a');
+            link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(quoteText);
+            link.download = `eco-quote-${date}.txt`;
+            link.click();
+        }
+    </script>
+</body>
+</html>
